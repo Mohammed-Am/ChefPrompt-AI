@@ -23,18 +23,31 @@ export default function Main(){
                 aria-label=''
                 placeholder='e.g. oregano'
                 name='ingredient'
+                required
             
             />
             <button 
                 aria-label='Add ingredient'
+                className='add-ingredient'
             >
             Add ingredient
             </button>
         </form>
-
-        <ul>
-            {ingredientListItems}
-        </ul>
+        {
+            ingredientListItems.length >= 1 &&
+        <section>
+            <h2>Ingredients on hand:</h2>
+            <ul>{ingredientListItems}</ul>
+            <div className='container'>
+                <div>
+                    <h3>Ready for a recipe?</h3>
+                    <p>Generate a recipe from your list of ingredient</p>
+                </div>
+                <button>Get a recipe</button>
+            </div>
+        </section>
+        }
+        
     </main>    
     )
 }
